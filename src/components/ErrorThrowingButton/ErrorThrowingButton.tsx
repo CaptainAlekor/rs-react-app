@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 class ErrorThrowingButton extends React.Component<
-  null,
+  unknown,
   { throwError: boolean }
 > {
   constructor(props) {

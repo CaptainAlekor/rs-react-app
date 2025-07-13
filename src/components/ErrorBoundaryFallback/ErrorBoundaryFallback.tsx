@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-class ErrorBoundaryFallback extends React.Component<null, null> {
+class ErrorBoundaryFallback extends React.Component<unknown, unknown> {
   render() {
     return (
       <div style={{ textAlign: 'center' }}>

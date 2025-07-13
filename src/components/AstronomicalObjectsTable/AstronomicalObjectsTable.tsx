@@ -4,7 +4,7 @@ import './AstronomicalObjectTable.css';
 
 class AstronomicalObjectsTable extends React.Component<
   AstronomicalObjectTableProps,
-  null
+  unknown
 > {
   render() {
     return (

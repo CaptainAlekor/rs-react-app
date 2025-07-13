@@ -6,7 +6,7 @@ import AstronomicalObjectsTable from './components/AstronomicalObjectsTable/Astr
 import Spinner from './components/Spinner/Spinner.tsx';
 import ErrorThrowingButton from './components/ErrorThrowingButton/ErrorThrowingButton.tsx';
 
-class App extends React.Component<null, AppState> {
+class App extends React.Component<unknown, AppState> {
   constructor(props) {
     super(props);
     this.state = { searchResult: [], searchError: null, isLoading: false };
