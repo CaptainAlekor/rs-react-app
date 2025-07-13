@@ -1,5 +1,7 @@
 import * as React from 'react';
 import type { AstronomicalObject } from '../../interfaces/AstronomicalObject.ts';
+import axios from 'axios';
+import type { AxiosResponse } from 'axios';
 
 class Search extends React.Component<SearchProps, SearchState> {
   constructor(props) {
@@ -8,7 +10,25 @@ class Search extends React.Component<SearchProps, SearchState> {
   }
 
   handleSearchClick = () => {
-    this.props.onResult([]);
+    axios
+      .post(
+        'https://stapi.co/api/v2/rest/astronomicalObject/search',
+        {
+          name: this.state.searchTerm.trim(),
+        },
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        }
+      )
+      .then(
+        (
+          response: AxiosResponse<{ astronomicalObjects: AstronomicalObject[] }>
+        ) => {
+          this.props.onResult(response.data.astronomicalObjects);
+        }
+      );
   };
 
   render() {

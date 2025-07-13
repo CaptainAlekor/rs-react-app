@@ -11,6 +11,7 @@ class App extends React.Component<null, AppState> {
 
   handleSearchResult = (result) => {
     this.setState({ searchResult: result });
+    console.log(result);
   };
 
   render() {
