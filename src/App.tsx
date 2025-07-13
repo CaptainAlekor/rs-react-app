@@ -7,12 +7,12 @@ import Spinner from './components/Spinner/Spinner.tsx';
 import ErrorThrowingButton from './components/ErrorThrowingButton/ErrorThrowingButton.tsx';
 
 class App extends React.Component<unknown, AppState> {
-  constructor(props) {
+  constructor(props: unknown) {
     super(props);
     this.state = { searchResult: [], searchError: null, isLoading: false };
   }
 
-  handleSearchResult = (result) => {
+  handleSearchResult = (result: AstronomicalObject[]) => {
     this.setState({
       searchResult: result,
       searchError: null,
@@ -20,7 +20,7 @@ class App extends React.Component<unknown, AppState> {
     });
   };
 
-  handleSearchError = (message) => {
+  handleSearchError = (message: string) => {
     this.setState({
       searchError: message,
       searchResult: [],

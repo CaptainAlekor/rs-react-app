@@ -4,7 +4,7 @@ class ErrorThrowingButton extends React.Component<
   unknown,
   { throwError: boolean }
 > {
-  constructor(props) {
+  constructor(props: unknown) {
     super(props);
 
     this.state = {

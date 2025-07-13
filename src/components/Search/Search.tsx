@@ -7,7 +7,7 @@ import './Search.css';
 class Search extends React.Component<SearchProps, SearchState> {
   private SEARCH_TERM_LS_KEY = 'searchTerm';
 
-  constructor(props) {
+  constructor(props: SearchProps) {
     super(props);
     this.state = {
       searchTerm: localStorage.getItem(this.SEARCH_TERM_LS_KEY) ?? '',
