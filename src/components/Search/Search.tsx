@@ -16,7 +16,12 @@ class Search extends React.Component<SearchProps, SearchState> {
 
   handleSearchClick = () => {
     this.props.onSearchClick();
-    localStorage.setItem(this.SEARCH_TERM_LS_KEY, this.state.searchTerm);
+    if (this.state.searchTerm.trim().length !== 0) {
+      localStorage.setItem(
+        this.SEARCH_TERM_LS_KEY,
+        this.state.searchTerm.trim()
+      );
+    }
     axios
       .post(
         'https://stapi.co/api/v2/rest/astronomicalObject/search',
