@@ -1,12 +1,15 @@
-:root, button, input {
-    --primary-color: #0d1117;
-    --secondary-color: white;
+:root,
+button,
+input {
+  --primary-color: #0d1117;
+  --secondary-color: white;
 
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
-button, input {
-    border-radius: 5px;
-    padding: 5px;
+button,
+input {
+  border-radius: 5px;
+  padding: 5px;
 }
