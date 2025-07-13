@@ -47,6 +47,10 @@ class Search extends React.Component<SearchProps, SearchState> {
       });
   };
 
+  componentDidMount() {
+    this.handleSearchClick();
+  }
+
   render() {
     return (
       <div>
