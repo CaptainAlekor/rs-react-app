@@ -3,3 +3,9 @@
     flex-direction: column;
     align-items: center;
 }
+
+#errorThrowingButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}

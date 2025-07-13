@@ -4,6 +4,7 @@ import Search from './components/Search/Search.tsx';
 import type { AstronomicalObject } from './interfaces/AstronomicalObject.ts';
 import AstronomicalObjectsTable from './components/AstronomicalObjectsTable/AstronomicalObjectsTable.tsx';
 import Spinner from './components/Spinner/Spinner.tsx';
+import ErrorThrowingButton from './components/ErrorThrowingButton/ErrorThrowingButton.tsx';
 
 class App extends React.Component<null, AppState> {
   constructor(props) {
@@ -43,6 +44,7 @@ class App extends React.Component<null, AppState> {
           />
         )}
         <Spinner isDisplayed={this.state.isLoading} />
+        <ErrorThrowingButton />
       </div>
     );
   }
