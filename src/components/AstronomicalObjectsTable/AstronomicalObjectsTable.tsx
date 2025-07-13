@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { AstronomicalObject } from '../../interfaces/AstronomicalObject.ts';
+import './AstronomicalObjectTable.css';
 
 class AstronomicalObjectsTable extends React.Component<
   AstronomicalObjectTableProps,
@@ -7,17 +8,19 @@ class AstronomicalObjectsTable extends React.Component<
 > {
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>uid</th>
-            <th>name</th>
-            <th>object type</th>
-            <th>location</th>
-          </tr>
-        </thead>
-        <tbody>{this.getTableRows()}</tbody>
-      </table>
+      <div id="tableContainer">
+        <table>
+          <thead>
+            <tr>
+              <th className="uid">uid</th>
+              <th className="name">name</th>
+              <th className="objectType">object type</th>
+              <th className="location">location</th>
+            </tr>
+          </thead>
+          <tbody>{this.getTableRows()}</tbody>
+        </table>
+      </div>
     );
   }
 
@@ -25,10 +28,12 @@ class AstronomicalObjectsTable extends React.Component<
     return this.props.astronomicalObjects.map((astronomicalObject) => {
       return (
         <tr key={astronomicalObject.uid}>
-          <td>{astronomicalObject.uid}</td>
-          <td>{astronomicalObject.name}</td>
-          <td>{astronomicalObject.astronomicalObjectType}</td>
-          <td>{astronomicalObject.location?.name}</td>
+          <td className="uid">{astronomicalObject.uid}</td>
+          <td className="name">{astronomicalObject.name}</td>
+          <td className="objectType">
+            {astronomicalObject.astronomicalObjectType}
+          </td>
+          <td className="location">{astronomicalObject.location?.name}</td>
         </tr>
       );
     });
