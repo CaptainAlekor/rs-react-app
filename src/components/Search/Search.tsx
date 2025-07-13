@@ -4,12 +4,17 @@ import axios, { AxiosError } from 'axios';
 import type { AxiosResponse } from 'axios';
 
 class Search extends React.Component<SearchProps, SearchState> {
+  private SEARCH_TERM_LS_KEY = 'searchTerm';
+
   constructor(props) {
     super(props);
-    this.state = { searchTerm: '' };
+    this.state = {
+      searchTerm: localStorage.getItem(this.SEARCH_TERM_LS_KEY) ?? '',
+    };
   }
 
   handleSearchClick = () => {
+    localStorage.setItem(this.SEARCH_TERM_LS_KEY, this.state.searchTerm);
     axios
       .post(
         'https://stapi.co/api/v2/rest/astronomicalObject/search',
@@ -30,7 +35,6 @@ class Search extends React.Component<SearchProps, SearchState> {
         }
       )
       .catch((error: AxiosError) => {
-        console.log(error);
         const statusCode = error.response?.status.toString();
         if (statusCode?.startsWith('4')) {
           this.props.onError('Bad request. Try again.');
