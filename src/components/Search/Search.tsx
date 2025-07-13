@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { AstronomicalObject } from '../../interfaces/AstronomicalObject.ts';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import type { AxiosResponse } from 'axios';
 
 class Search extends React.Component<SearchProps, SearchState> {
@@ -28,7 +28,18 @@ class Search extends React.Component<SearchProps, SearchState> {
         ) => {
           this.props.onResult(response.data.astronomicalObjects);
         }
-      );
+      )
+      .catch((error: AxiosError) => {
+        console.log(error);
+        const statusCode = error.response?.status.toString();
+        if (statusCode?.startsWith('4')) {
+          this.props.onError('Bad request. Try again.');
+        } else if (statusCode?.startsWith('5')) {
+          this.props.onError('The server failed to fulfill a request.');
+        } else {
+          this.props.onError('Unexpected error.');
+        }
+      });
   };
 
   render() {
@@ -52,6 +63,7 @@ class Search extends React.Component<SearchProps, SearchState> {
 
 interface SearchProps {
   onResult: (searchResult: AstronomicalObject[]) => void;
+  onError: (message: string) => void;
 }
 
 interface SearchState {

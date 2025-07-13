@@ -7,21 +7,36 @@ import AstronomicalObjectsTable from './components/AstronomicalObjectsTable/Astr
 class App extends React.Component<null, AppState> {
   constructor(props) {
     super(props);
-    this.state = { searchResult: [] };
+    this.state = { searchResult: [], searchError: null };
   }
 
   handleSearchResult = (result) => {
-    this.setState({ searchResult: result });
+    this.setState({
+      searchResult: result,
+      searchError: null,
+    });
     console.log(result);
+  };
+
+  handleSearchError = (message) => {
+    this.setState({
+      searchError: message,
+      searchResult: [],
+    });
   };
 
   render() {
     return (
       <div>
-        <Search onResult={this.handleSearchResult} />
-        <AstronomicalObjectsTable
-          astronomicalObjects={this.state.searchResult}
+        <Search
+          onResult={this.handleSearchResult}
+          onError={this.handleSearchError}
         />
+        {this.state.searchError || (
+          <AstronomicalObjectsTable
+            astronomicalObjects={this.state.searchResult}
+          />
+        )}
       </div>
     );
   }
@@ -29,6 +44,7 @@ class App extends React.Component<null, AppState> {
 
 interface AppState {
   searchResult: AstronomicalObject[];
+  searchError: string | null;
 }
 
 export default App;
