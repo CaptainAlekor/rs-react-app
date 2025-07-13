@@ -57,7 +57,7 @@ class Search extends React.Component<SearchProps, SearchState> {
       <div id="searchSection">
         <label>
           <input
-            placeholder="Astronimical object name"
+            placeholder="Astronomical object name"
             value={this.state.searchTerm}
             onChange={(event) =>
               this.setState({ searchTerm: event.target.value })
