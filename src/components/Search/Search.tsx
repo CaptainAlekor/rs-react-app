@@ -14,6 +14,7 @@ class Search extends React.Component<SearchProps, SearchState> {
   }
 
   handleSearchClick = () => {
+    this.props.onSearchClick();
     localStorage.setItem(this.SEARCH_TERM_LS_KEY, this.state.searchTerm);
     axios
       .post(
@@ -68,6 +69,7 @@ class Search extends React.Component<SearchProps, SearchState> {
 interface SearchProps {
   onResult: (searchResult: AstronomicalObject[]) => void;
   onError: (message: string) => void;
+  onSearchClick: () => void;
 }
 
 interface SearchState {
