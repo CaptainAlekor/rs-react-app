@@ -1,0 +1,9 @@
+:root, button, input {
+    background-color: #0d1117;
+    color: white;
+}
+
+button, input {
+    border-radius: 5px;
+    padding: 5px;
+}

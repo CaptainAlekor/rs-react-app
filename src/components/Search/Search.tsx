@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { AstronomicalObject } from '../../interfaces/AstronomicalObject.ts';
 import axios, { AxiosError } from 'axios';
 import type { AxiosResponse } from 'axios';
+import './Search.css';
 
 class Search extends React.Component<SearchProps, SearchState> {
   private SEARCH_TERM_LS_KEY = 'searchTerm';
@@ -53,10 +54,10 @@ class Search extends React.Component<SearchProps, SearchState> {
 
   render() {
     return (
-      <div>
+      <div id="searchSection">
         <label>
-          Enter search term:
           <input
+            placeholder="Astronimical object name"
             value={this.state.searchTerm}
             onChange={(event) =>
               this.setState({ searchTerm: event.target.value })

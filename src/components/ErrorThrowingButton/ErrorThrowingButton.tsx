@@ -22,6 +22,7 @@ class ErrorThrowingButton extends React.Component<
     return (
       <button
         id="errorThrowingButton"
+        style={{ padding: '10px' }}
         onClick={() => this.setState({ throwError: true })}
       >
         Throw error
