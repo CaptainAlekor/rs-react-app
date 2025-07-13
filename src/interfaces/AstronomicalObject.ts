@@ -2,7 +2,7 @@ export interface AstronomicalObject {
   uid: string;
   name: string;
   astronomicalObjectType: string;
-  location: {
+  location: null | {
     uid: string;
     name: string;
   };
